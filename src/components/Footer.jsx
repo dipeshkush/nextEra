@@ -18,7 +18,7 @@ export default function Footer() {
 
           {/* ===== Brand ===== */}
           <div>
-            <div className="text-2xl font-bold">
+            <div className="text-2xl font-bold text-white tracking-tight">
               NextEra <span className="text-green-400">Trade</span>
             </div>
 
@@ -42,10 +42,10 @@ export default function Footer() {
             </div>
 
             <div className="space-y-3 text-sm text-white/50">
-              <Link href="/" className="block hover:text-white transition">Home</Link>
-              <Link href="/faq" className="block hover:text-white transition">FAQ</Link>
-              <Link href="/news" className="block hover:text-white transition">News</Link>
-              <Link href="/testimonials" className="block hover:text-white transition">Testimonials</Link>
+              <Link href="#hero" className="block hover:text-white transition">Home</Link>
+              <Link href="#faq" className="block hover:text-white transition">FAQ</Link>
+              <Link href="#news" className="block hover:text-white transition">News</Link>
+              <Link href="#testimonials" className="block hover:text-white transition">Testimonials</Link>
               <Link href="/contact" className="block hover:text-white transition">Contact</Link>
             </div>
           </div>
@@ -101,9 +101,14 @@ export default function Footer() {
 
           <div className="text-white/30">
             Design by{" "}
-            <span className="text-green-400 font-medium">
+            <a
+              href="https://webseeder.in"           // ← yahan real website URL daal do
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 font-medium hover:text-green-300 transition-colors duration-200 "
+            >
               WebSeeder Technologies
-            </span>
+            </a>
           </div>
 
         </div>

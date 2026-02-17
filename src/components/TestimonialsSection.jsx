@@ -81,7 +81,7 @@ export default function TestimonialsSection() {
   );
 
   return (
-    <section className="bg-black text-white py-28">
+    <section id="testimonials" className="bg-black text-white py-28">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* heading */}

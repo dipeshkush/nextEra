@@ -49,7 +49,7 @@ export default function Header() {
           {/* Right Side - CTA + Hamburger (mobile only) */}
           <div className="flex items-center gap-4">
             <Link
-              href="/signup"
+              href="/contact"
               className="hidden sm:inline-flex px-5 py-2.5 rounded-full bg-green-400 text-black text-sm font-semibold hover:bg-green-300 transition shadow-md shadow-green-500/20"
             >
               Contact Us
@@ -106,7 +106,7 @@ export default function Header() {
 
             {/* Mobile CTA */}
             <Link
-              href="/signup"
+              href="/contact"
               className="mt-4 px-8 py-3 rounded-full bg-green-400 text-black text-base font-semibold hover:bg-green-300 transition w-full max-w-xs text-center"
               onClick={toggleMenu}
             >

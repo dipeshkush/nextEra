@@ -43,7 +43,7 @@ export default function FaqSection() {
   const toggle = (i) => setOpen(open === i ? null : i);
 
   return (
-    <section className="bg-black text-white pb-12">
+    <section id="faq" className="bg-black text-white pb-12">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* ===== Heading ===== */}

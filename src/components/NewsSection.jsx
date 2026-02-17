@@ -47,7 +47,7 @@ export default function NewsSection() {
     ];
 
     return (
-        <section className="bg-black text-white py-12">
+        <section id="news" className="bg-black text-white py-12">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Heading */}

@@ -6,23 +6,23 @@ import { FaBolt, FaChartLine, FaShieldAlt } from "react-icons/fa";
 
 export default function Hero() {
   const words = ["Alpha", "Signal", "Profit"];
-const features = [
-  {
-    title: "Fast Exec",
-    desc: "ms orders",
-    Icon: FaBolt,
-  },
-  {
-    title: "Signals",
-    desc: "AI alerts",
-    Icon: FaChartLine,
-  },
-  {
-    title: "Secure",
-    desc: "Protected",
-    Icon: FaShieldAlt,
-  },
-];
+  const features = [
+    {
+      title: "Fast Exec",
+      desc: "ms orders",
+      Icon: FaBolt,
+    },
+    {
+      title: "Signals",
+      desc: "AI alerts",
+      Icon: FaChartLine,
+    },
+    {
+      title: "Secure",
+      desc: "Protected",
+      Icon: FaShieldAlt,
+    },
+  ];
 
 
 
@@ -61,7 +61,7 @@ const features = [
   }, [wordIndex]);
 
   return (
-    <section className="relative min-h-screen text-white overflow-hidden">
+    <section id="hero" className="relative min-h-screen text-white overflow-hidden">
       {/* Background Video */}
       <video
         autoPlay
@@ -83,7 +83,6 @@ const features = [
             Build Your Trading Edge With{" "}
             <span className="text-green-400 ">
               {displayed}
-              {/* {isTyping && <span className="ml-1 animate-pulse">|</span>} */}
             </span>
           </h1>
 
@@ -128,43 +127,42 @@ const features = [
           </div>
         </div>
 
-        {/* RIGHT - same as before */}
         <div className="flex flex-col gap-6 w-full lg:ml-6 mt-6">
           <div className="w-full h-[420px] rounded-xl overflow-hidden border border-white/20 bg-black/50 backdrop-blur shadow-2xl">
             <TradingChart />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-  {features.map((f, i) => {
-    const Icon = f.Icon;
+            {features.map((f, i) => {
+              const Icon = f.Icon;
 
-    return (
-      <div
-        key={i}
-        className="group rounded-xl border border-white/15 bg-white/10 backdrop-blur p-5 hover:bg-white/15 hover:border-green-400/40 transition"
-      >
-        <div className="flex items-center gap-4">
+              return (
+                <div
+                  key={i}
+                  className="group rounded-xl border border-white/15 bg-white/10 backdrop-blur p-5 hover:bg-white/15 hover:border-green-400/40 transition"
+                >
+                  <div className="flex items-center gap-4">
 
-          {/* icon */}
-          <div className="w-10 h-10 shrink-0 rounded-lg bg-green-400/15 border border-green-400/30 flex items-center justify-center">
-            <Icon className="text-green-400 text-lg" />
+                    {/* icon */}
+                    <div className="w-10 h-10 shrink-0 rounded-lg bg-green-400/15 border border-green-400/30 flex items-center justify-center">
+                      <Icon className="text-green-400 text-lg" />
+                    </div>
+
+                    {/* text */}
+                    <div className="leading-tight">
+                      <div className="font-semibold text-base">
+                        {f.title}
+                      </div>
+                      <div className="text-sm text-white/70 mt-1">
+                        {f.desc}
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              );
+            })}
           </div>
-
-          {/* text */}
-          <div className="leading-tight">
-            <div className="font-semibold text-base">
-              {f.title}
-            </div>
-            <div className="text-sm text-white/70 mt-1">
-              {f.desc}
-            </div>
-          </div>
-
-        </div>
-      </div>
-    );
-  })}
-</div>
 
 
         </div>
