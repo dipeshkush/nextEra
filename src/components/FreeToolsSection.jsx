@@ -6,6 +6,7 @@ import {
   FaBalanceScale,
   FaTrophy,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function FreeToolsSection() {
   const tools = [
@@ -40,11 +41,16 @@ export default function FreeToolsSection() {
   ];
 
   return (
-    <section className="bg-[#050816] text-white py-12">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-[#050816] text-white py-16">
+      <div className="max-w-8xl mx-auto px-6 lg:px-10">
 
-        {/* ===== Heading ===== */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl font-semibold">
             Try The Tools Before You Trade
           </h2>
@@ -52,24 +58,30 @@ export default function FreeToolsSection() {
             Explore our built-in trading utilities and calculators to plan
             smarter trades — no signup required.
           </p>
-        </div>
+        </motion.div>
 
-        {/* ===== Cards ===== */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {tools.map((t, i) => {
             const Icon = t.Icon;
             return (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-white/25 hover:bg-white/10 transition"
               >
-                {/* icon badge */}
-                <div
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
+                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 + 0.05 }}
                   className={`w-14 h-14 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br ${t.color}`}
                 >
                   <Icon className={`text-2xl ${t.iconColor}`} />
-                </div>
+                </motion.div>
 
                 <h3 className="text-lg font-semibold mb-2">
                   {t.title}
@@ -80,7 +92,7 @@ export default function FreeToolsSection() {
                 </p>
 
                 <div className="mt-4 h-px w-0 bg-white/40 group-hover:w-full transition-all duration-300" />
-              </div>
+              </motion.div>
             );
           })}
 

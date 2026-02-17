@@ -2,6 +2,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CTA from "@/components/CTA";
 
 export default function TermsPage() {
   return (
@@ -12,7 +13,7 @@ export default function TermsPage() {
         <div className="flex items-center justify-center bg-gradient-to-b from-black via-gray-950 to-black">
           <div className="max-w-4xl mx-auto px-6 text-center mt-24">
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-              Terms of <span className="text-green-400">Service</span>
+              Terms and <span className="text-green-400">Conditions</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -27,7 +28,7 @@ export default function TermsPage() {
         </div>
 
         {/* Main Content */}
-        <div className="max-w-4xl mx-auto px-6 py-16">
+        <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="prose prose-invert prose-green max-w-none">
             <h2 className="text-2xl font-bold mt-12 mb-6">1. Acceptance of Terms</h2>
             <p>
@@ -128,7 +129,7 @@ export default function TermsPage() {
           </div>
         </div>
       </div>
-
+      <CTA />
       <Footer />
     </>
   );

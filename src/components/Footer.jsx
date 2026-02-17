@@ -2,118 +2,110 @@
 
 import Link from "next/link";
 import {
+  FaFacebookF,
+  FaInstagram,
   FaTwitter,
-  FaLinkedin,
-  FaGithub,
-  FaTelegramPlane,
+  FaLinkedinIn,
+  FaPhoneAlt,
+  FaEnvelope
 } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-black/80 text-gray-900 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <footer className="bg-black/80 text-gray-300 border-t border-white/10">
 
-        {/* ===== Top Grid ===== */}
-        <div className="grid md:grid-cols-4 gap-12">
+      {/* Main Footer Content */}
+      <div className="max-w-8xl mx-auto px-6 md:px-10 lg:px-12 py-8 ">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-10 lg:gap-20">
 
-          {/* ===== Brand ===== */}
-          <div>
-            <div className="text-2xl font-bold text-white tracking-tight">
-              NextEra <span className="text-green-400">Trade</span>
-            </div>
-
-            <p className="mt-5 text-white/80 leading-relaxed text-sm max-w-sm">
+          {/* Column 1 - About */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-semibold text-white">About NextEra Trade</h4>
+            <p className="text-gray-300 leading-relaxed max-w-md">
               Advanced trading platform with pro charts, AI signals
               and fast execution tools built for modern traders.
             </p>
-
-            <div className="flex gap-4 mt-6 text-white/80">
-              <a className="hover:text-green-400 transition"><FaTwitter /></a>
-              <a className="hover:text-green-400 transition"><FaLinkedin /></a>
-              <a className="hover:text-green-400 transition"><FaGithub /></a>
-              <a className="hover:text-green-400 transition"><FaTelegramPlane /></a>
-            </div>
-          </div>
-
-          {/* ===== Quick Links ===== */}
-          <div>
-            <div className="font-semibold mb-5 text-white/80">
-              Quick Links
-            </div>
-
-            <div className="space-y-3 text-sm text-white/50">
-              <Link href="/#hero" className="block hover:text-white transition">Home</Link>
-              <Link href="/#faq" className="block hover:text-white transition">FAQ</Link>
-              <Link href="/#news" className="block hover:text-white transition">News</Link>
-              <Link href="/#testimonials" className="block hover:text-white transition">Testimonials</Link>
-              <Link href="/contact" className="block hover:text-white transition">Contact</Link>
-            </div>
-          </div>
-
-          {/* ===== More ===== */}
-          <div>
-            <div className="font-semibold mb-5 text-white/80">
-              More
-            </div>
-
-            <div className="space-y-3 text-sm text-white/50">
-              <Link href="/privacy" className="block hover:text-white transition">
-                Privacy Policy
+            <div className="flex items-center gap-5">
+              <Link href="#" className="text-gray-300 hover:text-white transition-colors">
+                <FaFacebookF size={20} />
               </Link>
-              <Link href="/terms" className="block hover:text-white transition">
-                Terms
+              <Link href="#" className="text-gray-300 hover:text-white transition-colors">
+                <FaInstagram size={20} />
               </Link>
-              <Link href="/about" className="block hover:text-white transition">
-                About Us
+              <Link href="#" className="text-gray-300 hover:text-white transition-colors">
+                <FaTwitter size={20} />
+              </Link>
+              <Link href="#" className="text-gray-300 hover:text-white transition-colors">
+                <FaLinkedinIn size={20} />
               </Link>
             </div>
           </div>
 
-          {/* ===== Newsletter ===== */}
-          <div>
-            <div className="font-semibold mb-5 text-white/80">
-              Market Updates
-            </div>
+          {/* Column 2 - Quick Links */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-semibold text-white">Quick Links</h4>
+            <ul className="space-y-3">
+              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
+              <li><Link href="/#faq" className="hover:text-white transition-colors">Faq</Link></li>
+              <li><Link href="/#news" className="hover:text-white transition-colors">News</Link></li>
+              <li><Link href="/#testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
+              <li><Link href="/contact-us" className="hover:text-white transition-colors">Contact</Link></li>
+            </ul>
+          </div>
 
-            <p className="text-sm text-white/50 mb-4">
-              Get trading insights and platform updates.
+          {/* Column 3 - Other Links */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-semibold text-white">Other Links</h4>
+            <ul className="space-y-3">
+              <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
+              <li><Link href="/about-us" className="hover:text-white transition-colors">About Us</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4 - Contact */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-semibold text-white">Contact Info</h4>
+
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Need help with the platform or have any questions?
+              Reach out to our support team and we’ll get back to you shortly.
             </p>
 
-            <div className="flex gap-3">
-              <input
-                placeholder="Email address"
-                className="flex-1 rounded-lg bg-white/5 border border-white/15 px-4 py-3 text-sm outline-none placeholder:text-white/30 focus:border-green-400/60"
-              />
-              <button className="rounded-lg bg-green-400 text-black px-5 py-3 text-sm font-semibold hover:bg-green-300 transition">
-                Join
-              </button>
-            </div>
+            <ul className="space-y-5">
+              <li className="flex items-center gap-3">
+
+                <span>support@nexeratrade.com</span>
+              </li>
+            </ul>
           </div>
 
         </div>
+      </div>
 
-        {/* ===== Bottom Bar ===== */}
-        <div className="mt-16 p-4 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/40">
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-800 bg-black/60">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
 
-          <div>
+          <p className="text-center md:text-left">
             © {new Date().getFullYear()} NextEraTrade. All rights reserved.
-          </div>
+          </p>
 
-          <div className="text-white/30">
-            Design by{" "}
+          <p className="text-center md:text-right">
+            Designed by{" "}
             <a
-              href="https://webseeder.in"          
+              href="https://webseeder.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-400 font-medium hover:text-green-300 transition-colors duration-200 "
+              className="text-white font-semibold hover:text-gray-300 transition-colors"
             >
               WebSeeder Technologies
             </a>
-          </div>
+          </p>
 
         </div>
-
       </div>
+
     </footer>
   );
 }

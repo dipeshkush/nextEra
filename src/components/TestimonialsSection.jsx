@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function TestimonialsSection() {
   const testimonials = [
@@ -81,77 +82,90 @@ export default function TestimonialsSection() {
   );
 
   return (
-    <section id="testimonials" className="bg-black text-white py-28">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="testimonials" className="bg-black text-white py-16">
+      <div className="max-w-8xl mx-auto px-6 lg:px-10">
 
-        {/* heading */}
-        <div className="text-center mb-6">
-          <h2 className="text-4xl font-semibold">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-6"
+        >
+          <h2 className="text-4xl font-semibold mt-4">
             Trusted by Active <span className="text-green-400">Traders</span>
           </h2>
           <p className="mt-4 text-white/60 max-w-2xl mx-auto">
             Detailed feedback from traders using our charts, signals,
             execution tools and risk systems daily.
           </p>
-        </div>
+        </motion.div>
 
-        {/* controls */}
         <div className="flex justify-end gap-3 mb-6">
-          <button onClick={prev} className="p-3 rounded-lg border border-white/15 hover:border-green-400/40 hover:bg-white/10 transition">
+          <motion.button
+            whileTap={{ scale: 0.92 }}
+            onClick={prev}
+            className="p-3 rounded-lg border border-white/15 hover:border-green-400/40 hover:bg-white/10 transition"
+          >
             <FaChevronLeft />
-          </button>
-          <button onClick={next} className="p-3 rounded-lg border border-white/15 hover:border-green-400/40 hover:bg-white/10 transition">
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.92 }}
+            onClick={next}
+            className="p-3 rounded-lg border border-white/15 hover:border-green-400/40 hover:bg-white/10 transition"
+          >
             <FaChevronRight />
-          </button>
+          </motion.button>
         </div>
 
-        {/* cards */}
         <div
           className="grid md:grid-cols-3 gap-8"
           onMouseEnter={() => setPause(true)}
           onMouseLeave={() => setPause(false)}
         >
-          {visible.map((t, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-white/10 bg-white/5 p-8 hover:border-green-400/40 hover:bg-white/10 transition"
-            >
-              {/* stars */}
-              <div className="flex gap-1 mb-5 text-green-400">
-                {[...Array(5)].map((_, s) => (
-                  <FaStar key={s} className="text-sm" />
-                ))}
-              </div>
-
-              {/* main text */}
-              <p className="text-white/85 leading-relaxed">
-                “{t.text}”
-              </p>
-
-              {/* extra line */}
-              <p className="mt-3 text-sm text-white/60">
-                {t.extra}
-              </p>
-
-              {/* user */}
-              <div className="mt-8 flex items-center gap-4">
-                <div className="w-11 h-11 rounded-full bg-green-400/20 border border-green-400/30 flex items-center justify-center text-green-400 font-semibold">
-                  {t.name.charAt(0)}
+          <AnimatePresence mode="wait">
+            {visible.map((t, i) => (
+              <motion.div
+                key={t.name + slide + i}
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -30, scale: 0.96 }}
+                transition={{ duration: 0.45, delay: i * 0.07 }}
+                className="rounded-2xl border border-white/10 bg-white/5 p-8 hover:border-green-400/40 hover:bg-white/10 transition"
+              >
+                <div className="flex gap-1 mb-5 text-green-400">
+                  {[...Array(5)].map((_, s) => (
+                    <FaStar key={s} className="text-sm" />
+                  ))}
                 </div>
-                <div>
-                  <div className="font-semibold">{t.name}</div>
-                  <div className="text-sm text-white/50">{t.role}</div>
+
+                <p className="text-white/85 leading-relaxed">
+                  “{t.text}”
+                </p>
+
+                <p className="mt-3 text-sm text-white/60">
+                  {t.extra}
+                </p>
+
+                <div className="mt-8 flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-full bg-green-400/20 border border-green-400/30 flex items-center justify-center text-green-400 font-semibold">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-semibold">{t.name}</div>
+                    <div className="text-sm text-white/50">{t.role}</div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
-        {/* dots */}
         <div className="flex justify-center gap-3 mt-10">
           {Array.from({ length: totalSlides }).map((_, i) => (
-            <button
+            <motion.button
               key={i}
+              whileTap={{ scale: 0.9 }}
               onClick={() => setSlide(i)}
               className={`h-2 w-8 rounded-full transition ${
                 i === slide ? "bg-green-400" : "bg-white/20"
@@ -160,10 +174,15 @@ export default function TestimonialsSection() {
           ))}
         </div>
 
-        {/* trust strip */}
-        <div className="mt-12 text-center text-white/50 text-sm">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 text-center text-white/50 text-sm"
+        >
           ★ 4.7 average rating • 12,000+ users • Used across 40+ countries
-        </div>
+        </motion.div>
 
       </div>
     </section>

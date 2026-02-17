@@ -1,13 +1,16 @@
 import GetInTouchSection from "@/components/GetInTouchSection"; 
 import Header from "@/components/Header"; 
 import Footer from "@/components/Footer";
+import FaqSection from "@/components/FaqSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import CTA from "@/components/CTA";
 
 export default function ContactPage() {
     return (
         <>
         <Header />
         <div className="min-h-screen bg-black text-white pt-24 pb-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-8xl mx-auto ">
 
                 <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
@@ -23,7 +26,10 @@ export default function ContactPage() {
 
                 <GetInTouchSection />
             </div>
+            <FaqSection />
+            <TestimonialsSection />
         </div>
+        <CTA />
         <Footer />
         </>
     );

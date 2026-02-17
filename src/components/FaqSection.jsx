@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function FaqSection() {
   const faqs = [
@@ -43,11 +44,16 @@ export default function FaqSection() {
   const toggle = (i) => setOpen(open === i ? null : i);
 
   return (
-    <section id="faq" className="bg-black text-white pb-12">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="faq" className="bg-black text-white py-16">
+      <div className="max-w-8xl mx-auto px-6 lg:px-10">
 
-        {/* ===== Heading ===== */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl font-semibold">
             Frequently Asked <span className="text-green-400">Questions</span>
           </h2>
@@ -55,12 +61,17 @@ export default function FaqSection() {
             Quick answers to common questions about the platform,
             tools and trading workflow.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
 
-          {/* LEFT COLUMN */}
-          <div className="space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
             {faqs.slice(0, 4).map((item, i) => (
               <FaqItem
                 key={i}
@@ -68,12 +79,18 @@ export default function FaqSection() {
                 index={i}
                 open={open}
                 toggle={toggle}
+                delay={i * 0.06}
               />
             ))}
-          </div>
+          </motion.div>
 
-          {/* RIGHT COLUMN */}
-          <div className="space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
             {faqs.slice(4, 8).map((item, i) => (
               <FaqItem
                 key={i + 4}
@@ -81,9 +98,10 @@ export default function FaqSection() {
                 index={i + 4}
                 open={open}
                 toggle={toggle}
+                delay={i * 0.06}
               />
             ))}
-          </div>
+          </motion.div>
 
         </div>
 
@@ -92,14 +110,17 @@ export default function FaqSection() {
   );
 }
 
-/* ================= FAQ ITEM ================= */
-
-function FaqItem({ item, index, open, toggle }) {
+function FaqItem({ item, index, open, toggle, delay }) {
   const isOpen = open === index;
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
-      {/* question */}
+    <motion.div
+      initial={{ opacity: 0, y: 30, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45, delay }}
+      className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden"
+    >
       <button
         onClick={() => toggle(index)}
         className="w-full flex items-center justify-between gap-6 p-6 text-left hover:bg-white/5 transition"
@@ -108,14 +129,18 @@ function FaqItem({ item, index, open, toggle }) {
           {item.q}
         </span>
 
-        <FaChevronDown
-          className={`transition duration-300 ${
-            isOpen ? "rotate-180 text-green-400" : "text-white/50"
-          }`}
-        />
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.25 }}
+        >
+          <FaChevronDown
+            className={`transition duration-300 ${
+              isOpen ? "text-green-400" : "text-white/50"
+            }`}
+          />
+        </motion.div>
       </button>
 
-      {/* answer */}
       <div
         className={`grid transition-all duration-300 ${
           isOpen
@@ -129,6 +154,6 @@ function FaqItem({ item, index, open, toggle }) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

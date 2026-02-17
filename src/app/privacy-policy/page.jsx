@@ -1,6 +1,7 @@
 "use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CTA from "@/components/CTA";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -25,14 +26,14 @@ export default function PrivacyPolicyPage() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16 ">
+      <div className="max-w-7xl mx-auto px-6 py-16 ">
         <div className="prose prose-invert prose-green max-w-none">
           <h2 className="text-2xl font-bold mt-12 mb-6">1. Information We Collect</h2>
           <p>
             We collect information that you provide directly to us, including:
           </p>
           <ul>
-            <li>Personal identification information (name, email address, phone number)</li>
+           <li>Personal identification information (name, email address, phone number)</li>
             <li>Identity verification documents (for KYC compliance)</li>
             <li>Financial information (payment method details, transaction history)</li>
             <li>Trading activity and preferences</li>
@@ -120,6 +121,7 @@ export default function PrivacyPolicyPage() {
         </div>
       </div>
     </div>
+    <CTA />
     <Footer />
     </>
   );

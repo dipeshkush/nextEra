@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function NewsSection() {
     const cards = [
         {
@@ -47,39 +49,54 @@ export default function NewsSection() {
     ];
 
     return (
-        <section id="news" className="bg-black text-white py-12">
-            <div className="max-w-7xl mx-auto px-6">
+        <section id="news" className="bg-black text-white py-16">
+            <div className="max-w-8xl mx-auto px-6 lg:px-10">
 
-                {/* Heading */}
-                <h2 className="text-4xl font-semibold text-center mb-4">
+                <motion.h2
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-4xl font-semibold text-center mb-4"
+                >
                     Latest Crypto & <span className="text-green-400">Trading Updates</span>
-                </h2>
+                </motion.h2>
 
-                <p className="text-center text-white/70 max-w-2xl mx-auto mb-10">
+                <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="text-center text-white/70 max-w-2xl mx-auto mb-10"
+                >
                     Stay updated with the latest market moves, platform announcements,
                     trading signals and crypto insights — all in one place for smarter decisions.
-                </p>
+                </motion.p>
 
-
-                {/* Grid */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
                     {cards.map((card, i) => (
-                        <div
+                        <motion.div
                             key={i}
+                            initial={{ opacity: 0, y: 40, scale: 0.97 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: i * 0.07 }}
                             className="group rounded-2xl overflow-hidden border border-white/10 bg-zinc-900 hover:border-green-400/40 transition"
                         >
 
-                            {/* Image */}
                             <div className="h-44 overflow-hidden">
-                                <img
+                                <motion.img
                                     src={card.img}
                                     alt={card.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                    initial={{ scale: 1.05 }}
+                                    whileInView={{ scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6 }}
                                 />
                             </div>
 
-                            {/* Content */}
                             <div className="p-6">
 
                                 <div className="flex items-center gap-3 mb-4 text-xs">
@@ -100,7 +117,7 @@ export default function NewsSection() {
                                 </p>
 
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
 
                 </div>
