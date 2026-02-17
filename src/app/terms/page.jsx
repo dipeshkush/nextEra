@@ -9,7 +9,6 @@ export default function TermsPage() {
       <Header />
 
       <div className="min-h-screen bg-black text-white">
-        {/* Hero/Heading Section */}
         <div className="flex items-center justify-center bg-gradient-to-b from-black via-gray-950 to-black">
           <div className="max-w-4xl mx-auto px-6 text-center mt-24">
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">

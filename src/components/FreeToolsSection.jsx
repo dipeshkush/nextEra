@@ -79,7 +79,6 @@ export default function FreeToolsSection() {
                   {t.desc}
                 </p>
 
-                {/* subtle hover line */}
                 <div className="mt-4 h-px w-0 bg-white/40 group-hover:w-full transition-all duration-300" />
               </div>
             );

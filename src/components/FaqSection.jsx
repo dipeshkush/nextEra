@@ -57,7 +57,6 @@ export default function FaqSection() {
           </p>
         </div>
 
-        {/* ===== Two Independent Columns ===== */}
         <div className="grid md:grid-cols-2 gap-6">
 
           {/* LEFT COLUMN */}

@@ -21,7 +21,6 @@ export default function ContactPage() {
                     </p>
                 </div>
 
-                {/* Yahan tera existing pura section daal diya */}
                 <GetInTouchSection />
             </div>
         </div>

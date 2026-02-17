@@ -22,7 +22,6 @@ export default function ContactForm({ title = "Contact Us" }) {
     setLoading(true);
     setSuccess(false);
 
-    // 👉 yaha future me API call lagayenge
     await new Promise((r) => setTimeout(r, 1200));
 
     setLoading(false);

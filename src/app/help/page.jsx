@@ -79,7 +79,6 @@ export default function HelpPage() {
           </p>
         </div>
 
-        {/* Search Bar (optional – can add real search later) */}
         <div className="mb-12">
           <input
             type="text"

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { HiMenu, HiX } from "react-icons/hi"; // hamburger & close icons (npm install react-icons agar nahi hai)
+import { HiMenu, HiX } from "react-icons/hi"; 
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +46,6 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Right Side - CTA + Hamburger (mobile only) */}
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
@@ -55,7 +54,6 @@ export default function Header() {
               Contact Us
             </Link>
 
-            {/* Hamburger Button - only on mobile */}
             <button
               className="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-white/10 transition"
               onClick={toggleMenu}
