@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FaBolt, FaChartLine, FaShieldAlt } from "react-icons/fa";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -47,7 +47,7 @@ function LiveMarketData() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="w-full rounded-xl overflow-hidden border border-white/20 bg-[#0f0f17] backdrop-blur shadow-2xl"
+      className="w-full rounded-xl border border-white/20 bg-[#0f0f17] backdrop-blur shadow-2xl"
     >
       <div className="flex items-center justify-between px-5 py-4 bg-gradient-to-r from-gray-950 to-black border-b border-gray-800">
         <div className="flex items-center gap-3">
@@ -55,12 +55,16 @@ function LiveMarketData() {
             <FaChartLine className="text-green-400 text-xl" />
           </div>
 
-          <h3 className="text-lg font-semibold text-white">Live Market Data</h3>
+          <h3 className="text-lg font-semibold text-white">
+            Live Market Data
+          </h3>
         </div>
 
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-          <span className="text-sm text-green-400 font-medium">Real-time</span>
+          <span className="text-sm text-green-400 font-medium">
+            Real-time
+          </span>
         </div>
       </div>
 
@@ -86,11 +90,16 @@ function LiveMarketData() {
 
               <div className="text-right">
                 <div className="text-xl font-semibold text-white">
-                  ${item.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  $
+                  {item.price.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
                 </div>
                 <div
-                  className={`text-sm font-medium mt-1 ${item.change >= 0 ? "text-green-400" : "text-red-400"
-                    }`}
+                  className={`text-sm font-medium mt-1 ${
+                    item.change >= 0 ? "text-green-400" : "text-red-400"
+                  }`}
                 >
                   {item.change >= 0 ? "+" : ""}
                   {item.change.toFixed(2)} (
@@ -112,6 +121,8 @@ function LiveMarketData() {
 
 export default function Hero() {
   const words = ["Alpha", "Signal", "Profit"];
+  const tickerRef = useRef(null);
+
   const features = [
     {
       title: "Fast Exec",
@@ -164,6 +175,33 @@ export default function Hero() {
     };
   }, [wordIndex]);
 
+  useEffect(() => {
+    if (!tickerRef.current) return;
+
+    const script = document.createElement("script");
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      symbols: [
+        { proName: "BINANCE:BTCUSDT", title: "BTC/USDT" },
+        { proName: "BINANCE:ETHUSDT", title: "ETH/USDT" },
+        { proName: "BINANCE:SOLUSDT", title: "SOL/USDT" },
+        { proName: "NASDAQ:NVDA", title: "NVDA" },
+        { proName: "NASDAQ:AAPL", title: "AAPL" },
+        { proName: "SP:SPX", title: "S&P 500" },
+      ],
+      showSymbolLogo: true,
+      isTransparent: true,
+      displayMode: "adaptive",
+      colorTheme: "dark",
+      locale: "en",
+    });
+
+    tickerRef.current.innerHTML = "";
+    tickerRef.current.appendChild(script);
+  }, []);
+
   return (
     <section
       id="hero"
@@ -181,8 +219,6 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
 
       <div className="relative z-10 max-w-8xl mx-auto px-6 lg:px-10 pt-20 sm:pt-24 pb-12 grid xl:grid-cols-2 gap-8 xl:gap-12 items-center content-center min-h-[calc(100vh-120px)]">
-
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -250,7 +286,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="flex flex-col gap-5 w-full mt-4 "
+          className="flex flex-col gap-5 w-full mt-3 "
         >
           <LiveMarketData />
 
@@ -264,19 +300,15 @@ export default function Hero() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-xl border border-white/15 bg-white/10 backdrop-blur p-4 hover:bg-white/15 hover:border-green-400/40 transition"
+                  className="rounded-xl border border-white/15 bg-white/10 backdrop-blur p-3 hover:bg-white/15 hover:border-green-400/40 transition"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-lg bg-green-400/15 border border-green-400/30 flex items-center justify-center">
                       <Icon className="text-green-400 text-base" />
                     </div>
                     <div>
-                      <div className="font-semibold text-sm">
-                        {f.title}
-                      </div>
-                      <div className="text-xs text-white/70">
-                        {f.desc}
-                      </div>
+                      <div className="font-semibold text-sm">{f.title}</div>
+                      <div className="text-xs text-white/70">{f.desc}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -284,6 +316,12 @@ export default function Hero() {
             })}
           </div>
         </motion.div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/10 bg-black/80">
+        <div className="tradingview-widget-container" ref={tickerRef}>
+          <div className="tradingview-widget-container__widget" />
+        </div>
       </div>
     </section>
   );

@@ -47,7 +47,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><Link href="/#faq" className="hover:text-white transition-colors">Faq</Link></li>
-              <li><Link href="/#news" className="hover:text-white transition-colors">News</Link></li>
+              {/* <li><Link href="/#news" className="hover:text-white transition-colors">News</Link></li> */}
               <li><Link href="/#testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
               <li><Link href="/contact-us" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
@@ -67,7 +67,7 @@ export default function Footer() {
           <div className="space-y-6">
             <h4 className="text-lg font-semibold text-white">Contact Info</h4>
 
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-sm text-gray-300 leading-relaxed">
               Need help with the platform or have any questions?
               Reach out to our support team and we’ll get back to you shortly.
             </p>
