@@ -205,7 +205,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen text-white overflow-hidden overflow-x-hidden"
+      className="relative min-h-screen text-white overflow-hidden overflow-x-hidden pb-32 md:pb-40" // ← bottom padding badha diya taaki ticker ke liye space bane
     >
       <video
         autoPlay
@@ -218,7 +218,7 @@ export default function Hero() {
 
       <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
 
-      <div className="relative z-10 max-w-8xl mx-auto px-6 lg:px-10 pt-20 sm:pt-24 pb-12 grid xl:grid-cols-2 gap-8 xl:gap-12 items-center content-center min-h-[calc(100vh-120px)]">
+      <div className="relative z-10 max-w-8xl mx-auto px-6 lg:px-10 pt-20 sm:pt-24 pb-20 grid xl:grid-cols-2 gap-8 xl:gap-12 items-center content-center min-h-[calc(100vh-120px)]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -286,7 +286,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="flex flex-col gap-5  mt-3 "
+          className="flex flex-col gap-5 mt-3"
         >
           <LiveMarketData />
 
@@ -318,7 +318,8 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/10 bg-black/80">
+      {/* Ticker Tape – ab overlap nahi karega */}
+      <div className="sticky bottom-0 left-0 right-0 z-20 border-t border-white/10 bg-black/90 backdrop-blur-md">
         <div className="tradingview-widget-container" ref={tickerRef}>
           <div className="tradingview-widget-container__widget" />
         </div>

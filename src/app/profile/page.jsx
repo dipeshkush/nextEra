@@ -150,7 +150,7 @@ export default function ProfilePage() {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-10">
-            {/* LEFT: Full Editable Form – Sticky on desktop */}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
