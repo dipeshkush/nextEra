@@ -10,6 +10,7 @@ import FaqSection from "@/components/FaqSection";
 import GetInTouchSection from "@/components/GetInTouchSection";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
+import Plans from "@/components/Plans";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
     <ResultsSection />
     <NewsSection />
     <StepsSection />
+    <Plans />
     <FreeToolsSection />
     <TestimonialsSection />
     <FaqSection />

@@ -286,7 +286,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="flex flex-col gap-5 w-full mt-3 "
+          className="flex flex-col gap-5  mt-3 "
         >
           <LiveMarketData />
 
