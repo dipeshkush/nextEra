@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function ResultsSection() {
   return (
-    <section className="bg-black text-white py-16">
+    <section className="bg-black text-white py-12 md:py-20">
       <div className="max-w-8xl mx-auto px-6 lg:px-10">
 
         <motion.div
@@ -28,7 +28,7 @@ export default function ResultsSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
 
-          <ul className="space-y-6 text-white/80">
+          <ul className="space-y-8 text-white/80">
             {[
               "Improved trade execution latency by 42% with optimized order routing and faster matching engine response.",
               "Increased strategy deployment speed using reusable indicator blocks and modular chart components.",
